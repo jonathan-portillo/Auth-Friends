@@ -5,13 +5,13 @@ const iUserAuthenticated = () => {
   return localStorage.getItem("token") !== null;
 };
 
-const PrivateRoute = ({ component: Component, ...props }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
-      {...props}
-      render={() => {
+      {...rest}
+      render={(props) => {
         if (iUserAuthenticated()) {
-          return <Component />;
+          return <Component {...props} />;
         }
         return <Redirect to="/login" />;
       }}

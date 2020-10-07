@@ -25,10 +25,10 @@ class Friends extends React.Component {
       });
   };
 
-  //   addFriend = (e) => {
-  //     e.preventDefault();
-  //     this.props.history.push("/friends");
-  //   };
+  addFriend = (e) => {
+    // e.preventDefault();
+    this.props.history.push("/addfriend");
+  };
   render() {
     return (
       <div>
@@ -40,8 +40,9 @@ class Friends extends React.Component {
             <p>Email: {data.email}</p>
           </>
         ))}
-        <button>
-          <Link to="/addFriend">Add A Friend To The List </Link>{" "}
+        <button onClick={this.addFriend}>
+          Add a friend
+          {/* <Link to="/addFriend">Add A Friend To The List </Link>{" "} */}
         </button>
       </div>
     );
