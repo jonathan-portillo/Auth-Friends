@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../api/axiosWithAuth";
+import { Link } from "react-router-dom";
 
 class Friends extends React.Component {
   state = {
@@ -23,17 +24,25 @@ class Friends extends React.Component {
         console.log("Error with friends", err);
       });
   };
+
+  //   addFriend = (e) => {
+  //     e.preventDefault();
+  //     this.props.history.push("/friends");
+  //   };
   render() {
     return (
       <div>
         <h1>Friends!!</h1>
         {this.state.friends.map((data) => (
           <>
-            <p>{data.name}</p>
-            <p>{data.age}</p>
-            <p>{data.email}</p>
+            <p>Name: {data.name}</p>
+            <p>Age: {data.age}</p>
+            <p>Email: {data.email}</p>
           </>
         ))}
+        <button>
+          <Link to="/addFriend">Add A Friend To The List </Link>{" "}
+        </button>
       </div>
     );
   }
